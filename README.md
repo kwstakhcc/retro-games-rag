@@ -14,7 +14,7 @@ retro-games-rag/
 │   └── knowledge_base.json    # Processed JSON knowledge base
 | 
 ├── docs/                      
-│   └── demo.gif               # Interactive session gif.
+│   └── demo.gif               # Interactive session gif
 │
 ├── models/                    # Saved model artifacts (ignored by git)
 │   ├── tfidf_model.joblib
@@ -45,18 +45,19 @@ retro-games-rag/
 
 | Script | What it does |
 |---|---|
-| `data_loader.py` | Reads all `.csv` files from the `data/game-info` folder, parses/cleans extracted information into a list of dictionaries - knowledge base - and loads game descriptions to a list of strings so that a corpus is formed. |
-| `embed.py` | Builds/Loads models to encode the aforementioned corpus and calculates/loads the associated embeddings. The models/embeddings are saved in the `models/` directory. |
-| `retrieve.py` | Computes cosine similarity between the query and corpus embeddings; returns the top knowledge base matches specified by the parameter `k`. |
-| `system_prompt.py` | Assembles instructions + context into a system prompt for the LLM.|
-| `generate.py` | Assembles data payload with system prompt and user query and makes POST request to OpenRouter API so the LLM generates an answer. If an answer is, indeed, generated it is formatted and returned to the user. Otherwise, an exception is raised. |
+| `cli_retro_rag.py` |  Runs the interactive terminal loop; reads a query, prints a loading message, and displays the answer.  |
+| `src/data_loader.py` | Reads all `.csv` files from the `data/game-info` folder, parses/cleans extracted information into a list of dictionaries - knowledge base - and loads game descriptions to a list of strings so that a corpus is formed. |
+| `src/embed.py` | Builds/Loads models to encode the aforementioned corpus and calculates/loads the associated embeddings. The models/embeddings are saved in the `models/` directory. |
+| `src/retrieve.py` | Computes cosine similarity between the query and corpus embeddings; returns the top knowledge base matches specified by the parameter `k`. |
+| `src/system_prompt.py` | Assembles instructions + context into a system prompt for the LLM. |
+| `src/generate.py` | Assembles data payload with system prompt and user query and makes POST request to OpenRouter API so the LLM generates an answer. If an answer is, indeed, generated it is formatted and returned to the user. Otherwise, an exception is raised. |
 
 ### Helper Modules
 
 | Script | What it does |
 |---|---|
-| `utils.py` | Prints banner when the main loop starts, prints waiting messages and formats LLM responses. |
-| `config.py` | Adds OS environment variables, directory paths, API settings, LLM instructions, RAG system messages and chat history parameters.|
+| `src/utils.py` | Prints banner when the main loop starts, prints waiting messages and formats LLM responses. |
+| `src/config.py` | Adds OS environment variables, directory paths, API settings, LLM instructions, RAG system messages and chat history parameters.|
 
 ## Prerequisites
 - **Python 3.10+**
