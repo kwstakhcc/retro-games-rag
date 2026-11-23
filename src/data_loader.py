@@ -5,6 +5,7 @@ import csv
 import json
 
 from src.config import PROJECT_DIRECTORY_PATH, DATA_DIRECTORY_PATH, KNOWLEDGE_BASE_FILE_PATH
+from src.config import KNOWLEDGE_BASE_VALUES_TO_REMOVE
 
 
 def raw_knowledge_base(path: str) -> list[dict]:
@@ -39,14 +40,10 @@ def raw_knowledge_base(path: str) -> list[dict]:
     return knowledge_base
 
 def clean_knowledge_base(knowledge_base: list[dict]) -> list[dict]:
-
-    KEYS_LIST = ['released', 'gf_score', 'metascore', 'genre']
-    TO_REMOVE = set(['n/a', 'N/A', 'unknown', '', 'NA'])
     
     for game in knowledge_base:
-        for key in KEYS_LIST:
-            if game['metadata'][key] in TO_REMOVE:
-                del game['metadata'][key]
+        game['metadata'] = {key : value for key, value in game['metadata'].items()
+                            if not (isinstance(value, str) and value.strip().lower() in KNOWLEDGE_BASE_VALUES_TO_REMOVE)}
 
     return knowledge_base
 
