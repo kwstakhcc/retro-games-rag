@@ -8,6 +8,10 @@ KNOWLEDGE_BASE_FILE_PATH = os.path.join(DATA_DIRECTORY_PATH, 'knowledge_base.jso
 
 # ---------------------------------------------------------------------------------------------------
 
+KNOWLEDGE_BASE_VALUES_TO_REMOVE = {'n/a', 'unknown', '', 'na'}
+
+# ---------------------------------------------------------------------------------------------------
+
 URL = 'https://openrouter.ai/api/v1/chat/completions'
 API_KEY = os.environ.get('OPENROUTER_API_KEY')
 MODEL = 'openrouter/free'
@@ -29,9 +33,6 @@ INSTRUCTION_TEXT = """Answer the question clearly.
                       say 'Not covered.' Note that in the context below,
                       the symbol '---' is used as a separator to distinguish between information
                       regarding different games.
-
-                      Finally, when you give a game description from the context to the user
-                      make sure it can be read clearly.
                       """
 
 INSTRUCTIONS = f"{INTRO_AND_GOAL}\n\nINSTRUCTIONS:\n{INSTRUCTION_TEXT}\n\n"
