@@ -147,7 +147,7 @@ This project uses video game metadata and descriptions from **[opengamedb](https
 
 * **What was used:** Game titles, platform metadata, text descriptions and cover art urls from the repository's CSV datasets.
 * **Modifications:** Filtered/cleaned specific columns.
-* **License:**       The MIT License for this dataset is included in [`LICENSE.md`](./data/game-info/LICENSE.md).
+* **License:**       The MIT License for this dataset is included in [`LICENSE.md`](./data/data-license/LICENSE.md).
 
 > All video game titles, descriptions, and cover art belong to their respective publishers and copyright holders, and are used here strictly for educational and non-commercial portfolio purposes.
 
