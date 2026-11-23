@@ -60,7 +60,7 @@ retro-games-rag/
 | `src/config.py` | Adds OS environment variables, directory paths, API settings, LLM instructions, RAG system messages and chat history parameters.|
 
 ## Prerequisites
-- **Python 3.10+**
+- **Python 3.14.4+**
 - **An OpenRouter API key** — get one at [openrouter.ai/keys](https://openrouter.ai/keys)
 
 ## Setup
